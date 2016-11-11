@@ -10,7 +10,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Signup</servlet-name>
-		<url-pattern>/signup</url-pattern>
+		<url-pattern>/SignupServlet</url-pattern>
 	</servlet-mapping>
 	
 		<servlet>
