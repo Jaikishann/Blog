@@ -22,7 +22,7 @@ public class SignupServlet extends HttpServlet {
 		
 		
 		try {
-			Entity emp = ds.get(name);
+		Entity ent1 = ds.get(name);
 			status = true;
 			//System.out.print(employee.toString());
 		} catch (EntityNotFoundException e) {
@@ -44,7 +44,7 @@ public class SignupServlet extends HttpServlet {
 		String password=req.getParameter("password");
 		if(emailId!=null&&userName!=null&&password!=null){
 			
-			Entity user=new Entity("UserDetails");
+			Entity user=new Entity("UserDetails",userName);
 			Key key=KeyFactory.createKey("UserDetails", userName);
 			System.out.println(checkUser(key));
 			if(checkUser(key) == false){
@@ -70,4 +70,4 @@ public class SignupServlet extends HttpServlet {
 	
 }
 }
->>>>>>> 8da7ffea322c3ec3ae00f036355cffce84aee161
+
