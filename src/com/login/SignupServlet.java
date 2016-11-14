@@ -33,19 +33,20 @@ public class SignupServlet extends HttpServlet {
 				user.setProperty("userName", userName);
 				user.setProperty("password", password);
 				ds.put(user);
-				out.print("<p>Your signup was successfull</p>");
+				out.print("<p style=\"color:#0BC356\">Your signup was successfull</p>");
 
-				out.print("<a href=\"LogoutServlet\"> Logout</a>");
+				out.print("<a href=\"Logout\"> Logout</a>");
 			}
 
 			else {
-				out.print("<p>User name already exists</p>");
+				out.print("<p style=\"color:red\">User name already exists</p>");
 				req.getRequestDispatcher("signup.html").include(req, resp);
 
 			}
 		} else {
-			out.print("<p>Please fill every section</p>");
+			out.print("<p style=\"color:red\">Please fill every section</p>");
 			req.getRequestDispatcher("signup.html").include(req, resp);
+			out.print("</br><a href=\"index.html\">home</a>");
 		}
 
 	}

@@ -16,6 +16,15 @@ public class Validation {
 		}
 		
 	}
+	public static boolean nullCheckLogin(String userName , String password){
+		if (userName!=""&&password!=""){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
+	}
 //	public static boolean duplicateUserNameCheck(){
 		
 	
