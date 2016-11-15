@@ -14,9 +14,17 @@ public class Logout extends HttpServlet {
 			throws IOException, ServletException {
 		PrintWriter out=resp.getWriter();
 		resp.setContentType("text/html");
-		HttpSession session=req.getSession();
+		HttpSession session=req.getSession(false);
+		if(session!=null){
+
 		session.invalidate();
 		out.print("you have been successfully logged out");
 		req.getRequestDispatcher("index.html").include(req, resp);
+		}else{
+			out.println("please loggin ");
+			req.getRequestDispatcher("index.html").include(req, resp);
+
+			
+		}
 	}
 }

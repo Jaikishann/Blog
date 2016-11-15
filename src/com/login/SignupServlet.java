@@ -23,9 +23,13 @@ public class SignupServlet extends HttpServlet {
 		String emailId = req.getParameter("emailId");
 		String userName = req.getParameter("username");
 		String password = req.getParameter("password");
+		HttpSession session = req.getSession();
+		session.setAttribute("name", userName);
+		if(session.getAttribute("name")!=null){
 		if (Validation.nullCheck(emailId, userName, password)) {
 
 			Entity user = new Entity("UserDetails", userName);
+
 			Key key = KeyFactory.createKey("UserDetails", userName);
 			// System.out.println(Validation.checkUser(key));
 			if (Validation.checkUser(key) == false) {
@@ -36,7 +40,7 @@ public class SignupServlet extends HttpServlet {
 				out.print("<p style=\"color:#0BC356\">Your signup was successfull</p>");
 
 				out.print("<a href=\"Logout\"> Logout</a>");
-			}
+			}}
 
 			else {
 				out.print("<p style=\"color:red\">User name already exists</p>");
