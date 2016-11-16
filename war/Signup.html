@@ -3,22 +3,16 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css" />
 <title></title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="blog.js">
+</script>
 </head>
 <body>
-<div class="division">
-
-<form action="SignupServlet" method="post">
-	<p><b>Name:</b>    <input type="text" name="username"></p>
-	<br> 
-	<p><b>Password:</b><input type="password" name="password"></p>
-	<br> 
-	<p><b>Email   :</b><input type="text" name="emailId"></p>
-	
-	<br><input type="submit" value="Signup">
-	
-		
-</form>
-
-</div>
+<div hidden id="signupform">
+		<b>Name:</b> <input type="text" id="signupname"> <br> 
+		<b>Password:</b><input type="password" id="signuppassword"> <br> 
+		<b>Email :</b><input type="text" id="emailId"> <br>
+		<input type="button" value="Signup" id=signupbutton>
+	</div>
 </body>
 </html>

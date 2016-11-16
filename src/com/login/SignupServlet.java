@@ -14,7 +14,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 @SuppressWarnings("serial")
 public class SignupServlet extends HttpServlet {
 
-	public void doPost(HttpServletRequest req, HttpServletResponse resp)
+	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
 		com.google.appengine.api.datastore.DatastoreService ds = DatastoreServiceFactory
 				.getDatastoreService();
@@ -23,16 +23,17 @@ public class SignupServlet extends HttpServlet {
 		String emailId = req.getParameter("emailId");
 		String userName = req.getParameter("username");
 		String password = req.getParameter("password");
-		HttpSession session = req.getSession();
-		session.setAttribute("name", userName);
-		if(session.getAttribute("name")!=null){
+//		HttpSession session = req.getSession();
+//		session.setAttribute("name", userName);
+//		if(session.getAttribute("name")!=null){
 		if (Validation.nullCheck(emailId, userName, password)) {
 
-			Entity user = new Entity("UserDetails", userName);
+			
 
 			Key key = KeyFactory.createKey("UserDetails", userName);
 			// System.out.println(Validation.checkUser(key));
 			if (Validation.checkUser(key) == false) {
+				Entity user = new Entity("UserDetails", userName);
 				user.setProperty("emailId", emailId);
 				user.setProperty("userName", userName);
 				user.setProperty("password", password);
@@ -40,14 +41,15 @@ public class SignupServlet extends HttpServlet {
 				out.print("<p style=\"color:#0BC356\">Your signup was successfull</p>");
 
 				out.print("<a href=\"Logout\"> Logout</a>");
-			}}
+			}
 
 			else {
 				out.print("<p style=\"color:red\">User name already exists</p>");
+				
 				req.getRequestDispatcher("signup.html").include(req, resp);
 
-			}
-		} else {
+			}}
+		 else {
 			out.print("<p style=\"color:red\">Please fill every section</p>");
 			req.getRequestDispatcher("signup.html").include(req, resp);
 			out.print("</br><a href=\"index.html\">home</a>");
