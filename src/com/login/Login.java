@@ -27,7 +27,7 @@ public class Login extends HttpServlet {
 
 			Key key = KeyFactory.createKey("UserDetails", name);
 			try {
-				
+
 				com.google.appengine.api.datastore.Entity ent = lds.get(key);
 				// if (ent.getProperty("password").equals(password))
 
@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
 					out.print("<p style=\"color:#0BC356\">hi " + name
 							+ " your login is successfull</p>");
 					// System.out.println("password"+password);
-					HttpSession session = req.getSession(); 
+					HttpSession session = req.getSession();
 					session.setAttribute("name", name);
 					out.print("</br><a href=\"Logout\"> Logout</a>");
 
@@ -57,7 +57,7 @@ public class Login extends HttpServlet {
 		} else {
 			out.print("<p style=\"color:red\">please fill every section</p>");
 			req.getRequestDispatcher("login.html").include(req, resp);
-			
+
 		}
 
 	}
