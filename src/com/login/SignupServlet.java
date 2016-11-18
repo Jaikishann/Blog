@@ -40,11 +40,11 @@ public class SignupServlet extends HttpServlet {
 				ds.put(user);
 				//out.print("true");
 				//resp.sendRedirect("/");
-//				HttpSession session=req.getSession(true);
-//				session.setAttribute("uname", userName);
+				HttpSession session=req.getSession(true);
+				session.setAttribute("uname", userName);
 				out.print("<p>hi</p>"+userName+"<p>Your signup was successfull</p>");
 
-				out.print("<a href=\"login.html\"> Login</a>");
+				out.print("<script src=\"blog.js\"></script><br><input type=\"button\" value=\"login\" id=welcomelogin>");
 				
 				
 			}
@@ -54,14 +54,14 @@ public class SignupServlet extends HttpServlet {
 				
 				
 				
-				req.getRequestDispatcher("signup.html").include(req, resp);
+				req.getRequestDispatcher("signup.jsp").include(req, resp);
 				//out.print("false");
 
 			}}
 		 else {
 			out.print("<p style=\"color:red\">Please fill every section</p>");
-			req.getRequestDispatcher("signup.html").include(req, resp);
-			out.print("</br><a href=\"index.html\">home</a>");
+			req.getRequestDispatcher("signup.jsp").include(req, resp);
+			out.print("</br><a href=\"home.jsp\">home</a>");
 			// out.print("empty");
 		}
 

@@ -5,7 +5,7 @@ $(document).ready(function(){
 //		$("#signupform").hide();
 //	}
 	$("#welcomelogin").click(function(){
-		window.location.href="login.html";	
+		loginShow();	
 	});
 //	function signupShow(){
 //		$("#welcome").hide();
@@ -14,8 +14,11 @@ $(document).ready(function(){
 //	}
 	$("#welcomesignup").click(function(){
 		
-		window.location.href="signup.html";	
+		
+		signupShow();	
 	});
+
+
 //	function welcomeShow(){
 //		$("#welcome").show();
 //		$("#loginform").hide();
@@ -24,12 +27,33 @@ $(document).ready(function(){
 	$("#signupbutton").click(signUp);
 	$("#loginbutton").click(login);
 	
+	
 });
-function signupShow(){
-	console.log("show");
-	$("#signupform").show();
+$("#logoutbutton").click(logout);
+function logout(){
+	console.log("logout");
+	$.ajax({
+		url:"logout.jsp",
+	success:function(result){
+		$("#welcome").html(result);
+	}
+	})
 }
-
+function signupShow(){
+	
+	$.ajax({
+		url:"signup.jsp",
+	success:function(result){
+		$("#welcome").html(result);
+	}});
+}
+function loginShow(){
+	$.ajax({
+		url:"login.jsp",
+	success:function(result){
+		$("#welcome").html(result);
+	}})
+}
 function signUp(){
 	console.log("hi");
 	var name=document.getElementById("signupname").value;

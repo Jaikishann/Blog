@@ -33,16 +33,17 @@ public class Login extends HttpServlet {
 
 				if (Validation.isValidUser((ent.getProperty("password")),
 						password)) {
-					out.print("<p style=\"color:#0BC356\">hi " + name
-							+ " your login is successfull</p>");
+//					out.print("<p style=\"color:#0BC356\">hi " + name
+//							+ " your login is successfull</p>");
 					// System.out.println("password"+password);
 					HttpSession session = req.getSession();
-					session.setAttribute("name", name);
-					out.print("</br><a href=\"Logout\"> Logout</a>");
+					session.setAttribute("uname", name);
+//					out.print("</br><a href=\"logout.jsp\"> Logout</a>");
+					resp.sendRedirect("login.jsp");
 
 				} else {
 					out.print("<p style=\"color:red\">please enter valid details</p>");
-					req.getRequestDispatcher("login.html").include(req, resp);
+					req.getRequestDispatcher("login.jsp").include(req, resp);
 				}
 			}
 
@@ -50,13 +51,13 @@ public class Login extends HttpServlet {
 			catch (EntityNotFoundException e) {
 				// TODO Auto-generated catch block
 				out.println("<p style=\"color:red\">please signup first</p>");
-				req.getRequestDispatcher("signup.html").include(req, resp);
+				req.getRequestDispatcher("signup.jsp").include(req, resp);
 
 				// System.out.println("Not found");
 			}
 		} else {
 			out.print("<p style=\"color:red\">please fill every section</p>");
-			req.getRequestDispatcher("login.html").include(req, resp);
+			req.getRequestDispatcher("login.jsp").include(req, resp);
 
 		}
 
