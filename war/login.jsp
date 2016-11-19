@@ -14,10 +14,10 @@
 }
 %>
 <div id=loginform>
-		<b>Name: </b><input type="text" id="loginname"> <br> 
+		<b>Name: </b><input type="text" id="loginname" > <br> 
 		<b>Password:</b><input type="password" id="loginpassword"> <br>
 		 <input type="button" value="login" id=loginbutton>
-	</div>}
+	</div>
 
 </body>
 </html>

@@ -35,6 +35,7 @@ function logout(){
 	$.ajax({
 		url:"logout.jsp",
 	success:function(result){
+		
 		$("#welcome").html(result);
 	}
 	})
@@ -55,51 +56,46 @@ function loginShow(){
 	}})
 }
 function signUp(){
-	console.log("hi");
+	//console.log("hi");
 	var name=document.getElementById("signupname").value;
-	console.log("hi");
+	//console.log("hi");
 	var password=document.getElementById("signuppassword").value;
 	var emailId=document.getElementById("emailId").value;
-	var url="SignupServlet?username="+name+"&password="+password+"&emailId="+emailId;
-	console.log("hi");
+//	var url="SignupServlet?username="+name+"&password="+password+"&emailId="+emailId;
+//	console.log("hi");
 	
-	$.ajax({
-		url:url,
-	success:function(result){
+	$.post(
+		"SignupServlet",
+		{
+			username: name,
+			password: password,
+			emailId: emailId
+		},
+	function(result){
 		//document.location.href="/";	
 		$("#signupform").html(result);
 		//$("body").html(result);
 		console.log("hi");
-		//$("#welcome").html(result);
-//		$(document).ready(function(){
-//			console.log("hi dd");
-//			$("#bodyid").html(result);});
-//		if(result=="true"){
-//			document.write("your login was successfull");
-//		}
-//		else if(result=="false"){
-//			document.write("username already exists");
-//			$("div").load("signup.html");
-//			}
-//		else{
-//			document.write("please fill every section!");
-//		}
+
 	}
-	});
+	);
 }
 
 function login(){
 	var name=document.getElementById("loginname").value;
 	var password=document.getElementById("loginpassword").value;
-	var url="Login?name="+name+"&password="+password;
-	$.ajax({
-		url:url,
-		success:function(result){
+	//var url="Login?name="+name+"&password="+password;
+	$.post(
+		"Login",{
+			name: name,
+			password: password
+		},
+		function(result){
 			$("#loginform").html(result);
 			
 		}
 	
-	});
+	);
 	
 }
 	

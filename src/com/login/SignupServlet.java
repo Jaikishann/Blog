@@ -14,7 +14,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 @SuppressWarnings("serial")
 public class SignupServlet extends HttpServlet {
 
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
 		com.google.appengine.api.datastore.DatastoreService ds = DatastoreServiceFactory
 				.getDatastoreService();

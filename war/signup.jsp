@@ -17,7 +17,7 @@
 <div id="signupform">
 		<b>Name:</b> <input type="text" id="signupname"> <br> 
 		<b>Password:</b><input type="password" id="signuppassword"> <br> 
-		<b>Email :</b><input type="text" id="emailId"> <br>
+		<b>Email :</b><input type="email" id="emailId"> <br>
 		<input type="button" value="Signup" id=signupbutton>
 	</div>
 </body>
