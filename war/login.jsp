@@ -8,14 +8,14 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="blog.js"></script>
 </head>
-<body>
+<body>  
 <% if(session.getAttribute("uname")!=null){
-	response.sendRedirect("welcome.jsp");
+	response.sendRedirect("/");
 }
 %>
 <div id=loginform>
-		<b>Name: </b><input type="text" id="loginname" > <br> 
-		<b>Password:</b><input type="password" id="loginpassword"> <br>
+		<b>Name: </b><input type="text" placeholder="enter your name" id="loginname" > <br> 
+		<b>Password:</b><input type="password" placeholder="enter your password" id="loginpassword"> <br>
 		 <input type="button" value="login" id=loginbutton>
 	</div>
 

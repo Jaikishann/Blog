@@ -1,17 +1,9 @@
 $(document).ready(function(){
-//	function loginShow(){
-//		$("#welcome").hide();
-//		$("#loginform").show();
-//		$("#signupform").hide();
-//	}
+
 	$("#welcomelogin").click(function(){
 		loginShow();	
 	});
-//	function signupShow(){
-//		$("#welcome").hide();
-//		$("#loginform").hide();
-//		$("#signupform").show();
-//	}
+
 	$("#welcomesignup").click(function(){
 		
 		
@@ -19,11 +11,7 @@ $(document).ready(function(){
 	});
 
 
-//	function welcomeShow(){
-//		$("#welcome").show();
-//		$("#loginform").hide();
-//		$("#signupform").hide();
-//	}
+
 	$("#signupbutton").click(signUp);
 	$("#loginbutton").click(login);
 	
@@ -52,17 +40,26 @@ function loginShow(){
 	$.ajax({
 		url:"login.jsp",
 	success:function(result){
-		$("#welcome").html(result);
+		$("body").html(result);
 	}})
 }
+function blogformShow(){
+	$.ajax({
+		url:"blogform.jsp",
+		success:function(result){
+			$("body").html(result);
+		}
+	
+	})
+}
+
 function signUp(){
-	//console.log("hi");
+	
 	var name=document.getElementById("signupname").value;
-	//console.log("hi");
+	
 	var password=document.getElementById("signuppassword").value;
 	var emailId=document.getElementById("emailId").value;
-//	var url="SignupServlet?username="+name+"&password="+password+"&emailId="+emailId;
-//	console.log("hi");
+ 
 	
 	$.post(
 		"SignupServlet",
@@ -72,10 +69,10 @@ function signUp(){
 			emailId: emailId
 		},
 	function(result){
-		//document.location.href="/";	
-		$("#signupform").html(result);
-		//$("body").html(result);
-		console.log("hi");
+			
+		$("body").html(result);
+		
+		
 
 	}
 	);
@@ -84,7 +81,7 @@ function signUp(){
 function login(){
 	var name=document.getElementById("loginname").value;
 	var password=document.getElementById("loginpassword").value;
-	//var url="Login?name="+name+"&password="+password;
+	
 	$.post(
 		"Login",{
 			name: name,

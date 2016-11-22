@@ -33,13 +33,11 @@ public class Login extends HttpServlet {
 
 				if (Validation.isValidUser((ent.getProperty("password")),
 						password)) {
-//					out.print("<p style=\"color:#0BC356\">hi " + name
-//							+ " your login is successfull</p>");
-					// System.out.println("password"+password);
+
 					HttpSession session = req.getSession();
 					session.setAttribute("uname", name);
 //					out.print("</br><a href=\"logout.jsp\"> Logout</a>");
-					resp.sendRedirect("login.jsp");
+					resp.sendRedirect("/");
 
 				} else {
 					out.print("<p style=\"color:red\">please enter valid details</p>");
@@ -51,7 +49,7 @@ public class Login extends HttpServlet {
 			catch (EntityNotFoundException e) {
 				// TODO Auto-generated catch block
 				out.println("<p style=\"color:red\">please signup first</p>");
-				req.getRequestDispatcher("signup.jsp").include(req, resp);
+				req.getRequestDispatcher("signup.jsp").forward(req, resp);
 
 				// System.out.println("Not found");
 			}

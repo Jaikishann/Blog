@@ -10,14 +10,14 @@
 </head>
 <body>
 <% if(session.getAttribute("uname")!=null){
-	response.sendRedirect("welcome.jsp");
+	response.sendRedirect("/");
 }
 %>
 
 <div id="signupform">
-		<b>Name:</b> <input type="text" id="signupname"> <br> 
-		<b>Password:</b><input type="password" id="signuppassword"> <br> 
-		<b>Email :</b><input type="email" id="emailId"> <br>
+		<b>Name:</b> <input type="text" placeholder="enter your name" id="signupname"> <br> 
+		<b>Password:</b><input type="password" placeholder="enter your password" id="signuppassword"> <br> 
+		<b>Email :</b><input type="email" placeholder="enter your email id" id="emailId"> <br>
 		<input type="button" value="Signup" id=signupbutton>
 	</div>
 </body>

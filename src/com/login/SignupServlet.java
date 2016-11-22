@@ -37,11 +37,13 @@ public class SignupServlet extends HttpServlet {
 				user.setProperty("emailId", emailId);
 				user.setProperty("userName", userName);
 				user.setProperty("password", password);
+				user.setProperty("title", "");
 				ds.put(user);
 				//out.print("true");
 				//resp.sendRedirect("/");
 				HttpSession session=req.getSession(true);
 				session.setAttribute("uname", userName);
+				
 				out.print("<p>hi</p>"+userName+"<p>Your signup was successfull</p>");
 
 				out.print("<script src=\"blog.js\"></script><br><input type=\"button\" value=\"login\" id=welcomelogin>");
@@ -61,7 +63,7 @@ public class SignupServlet extends HttpServlet {
 		 else {
 			out.print("<p style=\"color:red\">Please fill every section</p>");
 			req.getRequestDispatcher("signup.jsp").include(req, resp);
-			out.print("</br><a href=\"home.jsp\">home</a>");
+			
 			// out.print("empty");
 		}
 
