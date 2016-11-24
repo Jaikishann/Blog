@@ -20,11 +20,11 @@
 		<% HashMap<String,String> hm=new HashMap<String,String>();
 		
 		DatastoreService lds = DatastoreServiceFactory.getDatastoreService();
-		Query q=new Query("UserDetails");
+		Query q=new Query("Blog");
 		PreparedQuery pq=lds.prepare(q);
 		 for(Entity ent:pq.asIterable()){
-			 
-			String name=ent.getProperty("userName").toString();
+			  
+			String name=ent.getProperty("username").toString();
 			String title=ent.getProperty("title").toString();
 			if(title!=null&&title!=""){
 			hm.put(name, title);}
@@ -43,12 +43,11 @@
 				
 				    String key = entry.getKey();
 				    String value = entry.getValue();
-				    out.print("<br><b>"+key+"</b>"+":"+value);
-				    out.print("<br>");}}
+				    out.print("<div><br><b>"+key+"</b>"+":<a onclick=\"contentShow()\" id="+value+">"+value+"</a><div>");}}
 				catch(Exception e){
 					out.print("exception");
 				}
-				
+				 	
 
 			} else {
 				out.print(
@@ -58,8 +57,8 @@
 				
 				    String key = entry.getKey();
 				    String value = entry.getValue();
-				    out.print("<br><b>"+key+"</b>"+":"+value);
-				    out.print("<br>");
+				    out.print("<div><br><b>"+key+"</b>:"+value+"<input type=\"button\" value=\"view\" onclick=\"contentShow()\" id="+value+"/><div>");
+				    //out.print("<br>");
 				}}
 				catch(Exception e){
 					out.print("exception2");

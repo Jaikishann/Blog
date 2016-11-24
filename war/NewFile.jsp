@@ -6,15 +6,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="blog.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#butt").click(function(){
+	var message=$(this).attr('id');
+	alert(message);
+});
+});
+
+</script>
 </head>
 <body>
-<div>
-<b>Enter the title: </b><input type="text" id=title placeholder="Enter your title"/><br>
-<b>Enter your Blog: </b>
-<br><textarea rows="30" cols="70" id=content></textarea>
-<br><input type="button" value="submit" id=blogSubmitButton>
-
+<div id=divid>
+<%
+String idval="butt";
+out.print ("<input type=\"button\" id="+idval+" value=\"clickme\"></div>");%>
 </div>
 </body>
 </html>

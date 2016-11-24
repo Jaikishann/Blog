@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import= "com.google.appengine.api.datastore.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,12 +10,21 @@
 <script src="blog.js"></script>
 </head>
 <body>
-<div>
-<b>Enter the title: </b><input type="text" id=title placeholder="Enter your title"/><br>
-<b>Enter your Blog: </b>
-<br><textarea rows="30" cols="70" id=content></textarea>
-<br><input type="button" value="submit" id=blogSubmitButton>
+<%
+DatastoreService lds = DatastoreServiceFactory.getDatastoreService();
+String title=request.getParameter("title");
+Key key=KeyFactory.createKey("Blog", title);
+Entity ent = lds.get(key);
+String content=(String)ent.getProperty("content");
+out.print(title+":<br>");
+out.print("&emsp;"+content);
+out.print("<a href=\"/\">home</a>");
 
-</div>
+	
+
+
+
+
+%>
 </body>
 </html>

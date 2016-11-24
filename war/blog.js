@@ -16,7 +16,10 @@ $(document).ready(function(){
 	$("#loginbutton").click(login);
 	
 	
+	
 });
+
+$("#blogSubmitButton").click(blogSubmit);
 $("#logoutbutton").click(logout);
 function logout(){
 	console.log("logout");
@@ -43,6 +46,18 @@ function loginShow(){
 		$("body").html(result);
 	}})
 }
+function contentShow(){
+	var title=$(this).attr("id");
+	console.log(title);
+	var url="content.jsp?title="+title;
+	$.ajax({
+		url:url,
+		success:function(result){
+			$("body").html(result);
+		}
+			});
+	
+}
 function blogformShow(){
 	$.ajax({
 		url:"blogform.jsp",
@@ -51,6 +66,20 @@ function blogformShow(){
 		}
 	
 	})
+}
+function blogSubmit(){
+	var title=document.getElementById("title").value;
+	var content=document.getElementById("content").value;
+	$.post(
+		"BlogSubmit",
+		{
+			title: title,
+			content: content
+		}, function(result){
+			$("body").html(result);
+		}
+	
+	)
 }
 
 function signUp(){
@@ -77,6 +106,7 @@ function signUp(){
 	}
 	);
 }
+
 
 function login(){
 	var name=document.getElementById("loginname").value;
