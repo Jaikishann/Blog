@@ -30,7 +30,7 @@ public class BlogSubmit extends HttpServlet{
 		String name=(String)session.getAttribute("uname");
 		//com.google.appengine.api.datastore.Key key=KeyFactory.createKey("UserDetails", name);
 		
-			Entity blog=new Entity("Blog",title);
+			Entity blog=new Entity("Blog");
 			//@SuppressWarnings("unchecked") 
 			//ArrayList<String> title=(ArrayList<String>) e.getProperty("title");
 			//@SuppressWarnings("unchecked")

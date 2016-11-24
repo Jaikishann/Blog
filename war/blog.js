@@ -47,7 +47,8 @@ function loginShow(){
 	}})
 }
 function contentShow(){
-	var title=$(this).attr("id");
+	alert($(this).attr('id'));
+	var title=$(this).attr('id');
 	console.log(title);
 	var url="content.jsp?title="+title;
 	$.ajax({

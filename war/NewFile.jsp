@@ -10,7 +10,9 @@
 $(document).ready(function(){
 	$("#butt").click(function(){
 	var message=$(this).attr('id');
+	console.log(message);
 	alert(message);
+	
 });
 });
 
@@ -20,7 +22,7 @@ $(document).ready(function(){
 <div id=divid>
 <%
 String idval="butt";
-out.print ("<input type=\"button\" id="+idval+" value=\"clickme\"></div>");%>
+out.print ("<input type=\"button\" id="+idval+" value=\"clickme\" ></div>");%>
 </div>
 </body>
 </html>

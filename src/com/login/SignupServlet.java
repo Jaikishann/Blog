@@ -14,8 +14,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 
 @SuppressWarnings("serial")
 public class SignupServlet extends HttpServlet {
-	ArrayList<String> title=new ArrayList<String>();
-	ArrayList<String> content=new ArrayList<String>();
+	
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
@@ -38,8 +37,7 @@ public class SignupServlet extends HttpServlet {
 				user.setProperty("emailId", emailId);
 				user.setProperty("userName", userName);
 				user.setProperty("password", password);
-				user.setProperty("title", title);
-				user.setProperty("content", content);
+				
 				ds.put(user);
 				
 				HttpSession session=req.getSession(true);

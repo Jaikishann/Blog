@@ -8,9 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>welcome</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="blog.js">
-	
-</script>
+<script src="blog.js"></script>
 </head>
 <body> 
 	<div id=welcome style="display: inline-block">
@@ -43,7 +41,7 @@
 				
 				    String key = entry.getKey();
 				    String value = entry.getValue();
-				    out.print("<div><br><b>"+key+"</b>"+":<a onclick=\"contentShow()\" id="+value+">"+value+"</a><div>");}}
+				    out.print("<div><br><b>"+key+"</b>:<a href=\"content.jsp?title="+value+"&name="+key+"\">"+value+"</a><div>");}}
 				catch(Exception e){
 					out.print("exception");
 				}
@@ -56,8 +54,9 @@
 					for(Map.Entry<String, String> entry : hm.entrySet()) {
 				
 				    String key = entry.getKey();
-				    String value = entry.getValue();
-				    out.print("<div><br><b>"+key+"</b>:"+value+"<input type=\"button\" value=\"view\" onclick=\"contentShow()\" id="+value+"/><div>");
+				    String val = entry.getValue();
+				    out.print("<div><br><b>"+key+"</b>:"+val+"<input type=\"button\" value=\"view\" id="+val+" onclick=\"contentShow()\"/><div>");
+				    System.out.println(val);
 				    //out.print("<br>");
 				}}
 				catch(Exception e){
