@@ -15,6 +15,8 @@
 DatastoreService lds = DatastoreServiceFactory.getDatastoreService();
 String title=request.getParameter("title");
 String name=request.getParameter("name");
+System.out.println(title);
+System.out.println(name);
 // Key key=KeyFactory.createKey("Blog", title);
 // Entity ent = lds.get(key);
 Query q=new Query("Blog").addFilter("title", FilterOperator.EQUAL, title);

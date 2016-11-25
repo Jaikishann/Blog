@@ -15,9 +15,22 @@ $(document).ready(function(){
 	$("#signupbutton").click(signUp);
 	$("#loginbutton").click(login);
 	
-	
+	$(".viewbutton").click(function(){
+		alert($(this).attr('name'));
+		var title=$(this).attr('name');
+		var name=$(this).attr('id');
+		console.log(title);
+		var url="content?title="+title+"&name="+name;
+		$.ajax({
+			url:url,
+			success:function(result){
+				$("body").html(result);
+			}
+				});
+	});
 	
 });
+
 
 $("#blogSubmitButton").click(blogSubmit);
 $("#logoutbutton").click(logout);

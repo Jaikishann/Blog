@@ -41,7 +41,7 @@
 				
 				    String key = entry.getKey();
 				    String value = entry.getValue();
-				    out.print("<div><br><b>"+key+"</b>:<a href=\"content.jsp?title="+value+"&name="+key+"\">"+value+"</a><div>");}}
+				    out.print("<div><br><b>"+key+"</b>:<a href=\"content?title="+value+"&name="+key+"\">"+value+"</a><div>");}}
 				catch(Exception e){
 					out.print("exception");
 				}
@@ -54,9 +54,9 @@
 					for(Map.Entry<String, String> entry : hm.entrySet()) {
 				
 				    String key = entry.getKey();
-				    String val = entry.getValue();
-				    out.print("<div><br><b>"+key+"</b>:"+val+"<input type=\"button\" value=\"view\" id="+val+" onclick=\"contentShow()\"/><div>");
-				    System.out.println(val);
+				    String value = entry.getValue();
+				    out.print("<div><br><b>"+key+"</b>:<a href=\"content?title="+value+"&name="+key+"\">"+value+"</a><div>");
+				    System.out.println(value);
 				    //out.print("<br>");
 				}}
 				catch(Exception e){
