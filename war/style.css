@@ -1,0 +1,41 @@
+@CHARSET "ISO-8859-1";
+#welcome,#loginform{
+	margin-left:20px;
+	margin-right:900px;
+	border-style:solid;
+	border-color:#354841;
+	padding:10px 50px 10px 50px; 
+	border-radius:10%;
+	
+	
+}
+a{
+	color:white;
+	text-decoration:none;
+}
+html{
+	background-image: url(/Media/bg.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+#displayblogs{	
+	border-radius:5%;
+	margin-top:10px;
+	margin-left:20px;
+	padding:10px;
+	border-style:solid;
+	border-color:#354841;
+	width:300px;
+	
+}
+#bloglink{
+	border-radius:15%;
+	border-style:none;
+	border-color:#484444;
+	background-color:#354841;
+
+	padding:10px;
+}
+#signupform{
+	
+}

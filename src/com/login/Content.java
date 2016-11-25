@@ -12,27 +12,27 @@ import com.google.appengine.api.datastore.*;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 
-public class Content extends HttpServlet{
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
+public class Content extends HttpServlet {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		response.setContentType("text/html");
-		
-		PrintWriter out=response.getWriter();
+
+		PrintWriter out = response.getWriter();
 		DatastoreService lds = DatastoreServiceFactory.getDatastoreService();
-		String title=request.getParameter("title");
-		String name=request.getParameter("name");
-		System.out.println(title);
-		System.out.println(name);
+		String title = request.getParameter("title");
+		String name = request.getParameter("name");
+		
 		// Key key=KeyFactory.createKey("Blog", title);
 		// Entity ent = lds.get(key);
-		Query q=new Query("Blog").addFilter("title", FilterOperator.EQUAL, title);
-		PreparedQuery pq=lds.prepare(q);
-		for(Entity ent:pq.asIterable()){
-			if(ent.getProperty("username").equals(name)){
-		String content=(String)ent.getProperty("content");
-		out.print("<h3><b>"+title+":</b></h3><br>");
-		out.print("&emsp;"+content);}}
+		Query q = new Query("Blog").addFilter("title", FilterOperator.EQUAL, title);
+		PreparedQuery pq = lds.prepare(q);
+		for (Entity ent : pq.asIterable()) {
+			if (ent.getProperty("username").equals(name)) {
+				String content = (String) ent.getProperty("content");
+				out.print("<h3><b>" + title + ":</b></h3><br>");
+				out.print("&emsp;" + content);
+			}
+		}
 		out.print("<br><a href=\"/\">home</a>");
-	
 
-}}
+	}
+}

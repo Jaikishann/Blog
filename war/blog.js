@@ -1,33 +1,43 @@
 $(document).ready(function(){
-
+	
+//	$(".contentview").click(function(){
+//		alert($(this).attr('id'));
+//	})
 	$("#welcomelogin").click(function(){
 		loginShow();	
 	});
 
 	$("#welcomesignup").click(function(){
-		
+	
 		
 		signupShow();	
 	});
-
+	
+	$.ajax({
+		url:"DisplayBlogs",
+	success:function(result){
+		
+		$("#displayblogs").html(result);
+	}
+	})
 
 
 	$("#signupbutton").click(signUp);
 	$("#loginbutton").click(login);
 	
-	$(".viewbutton").click(function(){
-		alert($(this).attr('name'));
-		var title=$(this).attr('name');
-		var name=$(this).attr('id');
-		console.log(title);
-		var url="content?title="+title+"&name="+name;
-		$.ajax({
-			url:url,
-			success:function(result){
-				$("body").html(result);
-			}
-				});
-	});
+//	$(".viewbutton").click(function(){
+//		alert($(this).attr('name'));
+//		var title=$(this).attr('name');
+//		var name=$(this).attr('id');
+//		console.log(title);
+//		var url="content?title="+title+"&name="+name;
+//		$.ajax({
+//			url:url,
+//			success:function(result){
+//				$("body").html(result);
+//			}
+//				});
+//	});
 	
 });
 
@@ -40,7 +50,7 @@ function logout(){
 		url:"logout.jsp",
 	success:function(result){
 		
-		$("#welcome").html(result);
+		$("body").html(result);
 	}
 	})
 }
@@ -59,19 +69,19 @@ function loginShow(){
 		$("body").html(result);
 	}})
 }
-function contentShow(){
-	alert($(this).attr('id'));
-	var title=$(this).attr('id');
-	console.log(title);
-	var url="content.jsp?title="+title;
-	$.ajax({
-		url:url,
-		success:function(result){
-			$("body").html(result);
-		}
-			});
-	
-}
+//function contentShow(){
+//	alert($(this).attr('id'));
+//	var title=$(this).attr('id');
+//	console.log(title);
+//	var url="content.jsp?title="+title;
+//	$.ajax({
+//		url:url,
+//		success:function(result){
+//			$("body").html(result);
+//		}
+//			});
+//	
+//}
 function blogformShow(){
 	$.ajax({
 		url:"blogform.jsp",
@@ -113,7 +123,7 @@ function signUp(){
 		},
 	function(result){
 			
-		$("body").html(result);
+		$("#signupform").html(result);
 		
 		
 
@@ -132,7 +142,7 @@ function login(){
 			password: password
 		},
 		function(result){
-			$("#loginform").html(result);
+			$("body").html(result);
 			
 		}
 	

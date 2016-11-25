@@ -32,6 +32,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>DisplayBlogs</servlet-name>
+		<servlet-class>com.login.DisplayBlogs</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DisplayBlogs</servlet-name>
+		<url-pattern>/DisplayBlogs</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>Content</servlet-name>
 		<servlet-class>com.login.Content</servlet-class>
 	</servlet>

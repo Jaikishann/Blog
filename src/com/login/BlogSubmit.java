@@ -2,6 +2,8 @@ package com.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +27,8 @@ public class BlogSubmit extends HttpServlet{
 		String title=req.getParameter("title");
 		String content=req.getParameter("content");
 		resp.setContentType("text/html");
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		long time=timestamp.getTime();
 		HttpSession session=req.getSession();
 		if(session.getAttribute("uname")!=null){
 		String name=(String)session.getAttribute("uname");
@@ -40,8 +44,10 @@ public class BlogSubmit extends HttpServlet{
 			blog.setProperty("username", name);
 			blog.setProperty("title", title);
 			blog.setProperty("content", content);
+			blog.setProperty("time", time);
+			
 			ds.put(blog);
-			p.print("updated<br>");
+			p.print("Your Blog has been updated<br>");
 			
 			req.getRequestDispatcher("/").include(req, resp);
 		
