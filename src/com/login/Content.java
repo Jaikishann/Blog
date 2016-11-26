@@ -28,8 +28,8 @@ public class Content extends HttpServlet {
 		for (Entity ent : pq.asIterable()) {
 			if (ent.getProperty("username").equals(name)) {
 				String content = (String) ent.getProperty("content");
-				out.print("<h3><b>" + title + ":</b></h3><br>");
-				out.print("&emsp;" + content);
+				out.print("<h3 style=\"color:white\"><b>" + title + ":</b></h3><br>");
+				out.print("&emsp;<p style=\"color:white\">" + content+"</p>");
 			}
 		}
 		out.print("<br><a href=\"/\">home</a>");

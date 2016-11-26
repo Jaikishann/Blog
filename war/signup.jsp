@@ -18,7 +18,7 @@
 		<b>Name:</b> <input type="text" placeholder="enter your name" id="signupname"> <br> 
 		<b>Password:</b><input type="password" placeholder="enter your password" id="signuppassword"> <br> 
 		<b>Email :</b><input type="email" placeholder="enter your email id" id="emailId"> <br>
-		<input type="button" value="Signup" id=signupbutton>
+		<input type="button" value="Signup" id=signupbutton class="button">
 	</div>
 </body>
 </html>

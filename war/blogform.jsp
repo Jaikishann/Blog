@@ -12,7 +12,7 @@
 <div>
 <b>Enter the title: </b><input type="text" id=title placeholder="Enter your title"/><br>
 <b>Enter your Blog: </b>
-<br><textarea rows="30" cols="70" id=content></textarea>
+<br><textarea rows="30" cols="70" id=content style="color:#354841;"></textarea>
 <br><input type="button" value="submit" id=blogSubmitButton>
 
 </div>

@@ -16,7 +16,7 @@
 <div id=loginform>
 		<b>Name: </b><input type="text" placeholder="enter your name" id="loginname" > <br> 
 		<b>Password:</b><input type="password" placeholder="enter your password" id="loginpassword"> <br>
-		 <input type="button" value="login" id=loginbutton>
+		 <input type="button" value="login" id=loginbutton class="button">
 	</div>
 
 </body>

@@ -18,6 +18,7 @@ $(document).ready(function(){
 	success:function(result){
 		
 		$("#displayblogs").html(result);
+		
 	}
 	})
 
@@ -54,6 +55,17 @@ function logout(){
 	}
 	})
 }
+//function contentDisplay(lname,ltitle){
+//	var name=lname;
+//	var title=ltitle;
+//	var url="content?title="+title+"&name="+name;
+//	$.ajax({
+//		url:url,
+//	success:function(result){
+//		$("body").html(result);
+//	}});
+//	
+//} 
 function signupShow(){
 	
 	$.ajax({
@@ -69,19 +81,22 @@ function loginShow(){
 		$("body").html(result);
 	}})
 }
-//function contentShow(){
+function contentShow(name,title){
 //	alert($(this).attr('id'));
-//	var title=$(this).attr('id');
-//	console.log(title);
-//	var url="content.jsp?title="+title;
-//	$.ajax({
-//		url:url,
-//		success:function(result){
-//			$("body").html(result);
-//		}
-//			});
-//	
-//}
+	var title=title;
+	console.log(title);
+	
+	var name=name;
+	console.log(name);
+	var url="content?title="+title+"&name="+name;
+	$.ajax({
+		url:url,
+		success:function(result){
+			$("#blogcontent").html(result);
+		}
+			});
+	
+}
 function blogformShow(){
 	$.ajax({
 		url:"blogform.jsp",

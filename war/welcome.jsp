@@ -13,7 +13,8 @@
 
 </head>
 <body> 
-	<div id=welcome style="display: inline-block">
+<div>
+	<div id=welcome style="text-align:center;">
 	
 	 
 		
@@ -32,7 +33,7 @@
 
 			 else {
 				out.print(
-						"<div style=\"display:inline-block\"><h3 style=\"color:white\"><b>WELCOME</b><h3><input type=\"button\" value=\"signup\" id=welcomesignup><input type=\"button\" value=\"login\" id=welcomelogin></div>");
+						"<div style=\"display:inline-block\"><h3 style=\"color:white\"><b>WELCOME</b><h3><input type=\"button\" class=\"button\" value=\"signup\" id=welcomesignup><input type=\"button\" class=\"button\" value=\"login\" id=welcomelogin></div>");
 				
 				}
 			
@@ -41,5 +42,7 @@
 		%>
 	</div>
 	<div id=displayblogs></div>
+	<div id=blogcontent style="text-align:center;"></div>
+</div>
 </body>
 </html>
