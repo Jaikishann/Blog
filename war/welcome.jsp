@@ -42,7 +42,7 @@
 		%>
 	</div>
 	<div id=displayblogs></div>
-	<div id=blogcontent style="text-align:center;"></div>
+	<div id=blogcontent style="text-align:center;margin-top:20px"></div>
 </div>
 </body>
 </html>

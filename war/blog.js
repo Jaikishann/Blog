@@ -40,6 +40,7 @@ $(document).ready(function(){
 //				});
 //	});
 	
+	
 });
 
 
@@ -54,6 +55,31 @@ function logout(){
 		$("body").html(result);
 	}
 	})
+}
+function editBlog(){
+//	var title=title;
+//	var name=name;
+//	var url="blogform.jsp?name="+name+"&title="+title;
+//	$.ajax({
+//		url:url,
+//	success:function(result){
+//	("body").html(result);}
+//	})
+	
+	var title=document.getElementById("titlediv").innerText;
+	var content=document.getElementById("contentdiv").innerText;
+	console.log(title);
+	$.post(
+		"blogform.jsp",
+		{
+			title: title,
+			content: content,
+		
+		},function(result){
+			$("body").html(result);
+		}
+		);
+	
 }
 //function contentDisplay(lname,ltitle){
 //	var name=lname;

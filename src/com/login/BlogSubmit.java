@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
 
@@ -30,17 +32,31 @@ public class BlogSubmit extends HttpServlet{
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		long time=timestamp.getTime();
 		HttpSession session=req.getSession();
-		if(session.getAttribute("uname")!=null){
+		if(session.getAttribute("key")!=null){
+			Key key=(Key) session.getAttribute("key");
+			
+				try {
+					Entity ent=ds.get(key);
+					ent.setProperty("title", title);
+					ent.setProperty("content", content);
+					ent.setProperty("time", time);
+					ds.put(ent);
+					p.print("updated successfully");
+					req.getRequestDispatcher("/").include(req, resp);
+					
+				} catch (EntityNotFoundException e) {
+					System.out.println("invalid "+key);
+				}
+			
+			
+			
+		}
+		else{
 		String name=(String)session.getAttribute("uname");
 		//com.google.appengine.api.datastore.Key key=KeyFactory.createKey("UserDetails", name);
 		
 			Entity blog=new Entity("Blog");
-			//@SuppressWarnings("unchecked") 
-			//ArrayList<String> title=(ArrayList<String>) e.getProperty("title");
-			//@SuppressWarnings("unchecked")
-			//ArrayList<String> content=(ArrayList<String>) e.getProperty("content");
-//			title.add(title1);
-//			content.add(content1);
+			
 			blog.setProperty("username", name);
 			blog.setProperty("title", title);
 			blog.setProperty("content", content);
@@ -51,10 +67,8 @@ public class BlogSubmit extends HttpServlet{
 			
 			req.getRequestDispatcher("/").include(req, resp);
 		
-		}
-		else{
-			p.print("please login first");
-		}
+		}}
+		
 	}
 
-}
+

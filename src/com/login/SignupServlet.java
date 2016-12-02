@@ -45,7 +45,7 @@ public class SignupServlet extends HttpServlet {
 				
 				out.print("<p>hi</p>"+userName+"<p>Your signup was successfull</p>");
 
-				out.print("<script src=\"blog.js\"></script><br><input type=\"button\" value=\"login\" id=welcomelogin>");
+				out.print("<br><script src=\"blog.js\"></script><input type=\"button\" value=\"login\" id=welcomelogin>");
 				
 				
 			}
